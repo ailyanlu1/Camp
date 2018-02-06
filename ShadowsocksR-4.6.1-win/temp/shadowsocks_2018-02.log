@@ -14621,3 +14621,333 @@
    在 Shadowsocks.Controller.Socks5Forwarder.Handler.ConnectCallback(IAsyncResult ar)
 [2018-02-06 19:39:17] [Info] Connect clients4.google.com:443
 [2018-02-06 19:40:32] [Info] Disconnect clients4.google.com:443
+[2018-02-06 19:41:39] [Info] Connect github.com:443
+[2018-02-06 19:41:39] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:41:39] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:41:39] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:41:41] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:41:41] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:41:42] [Info] Connect avatars0.githubusercontent.com:443
+[2018-02-06 19:41:42] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 19:41:42] [Info] Connect mtalk.google.com:5228
+[2018-02-06 19:41:49] [Info] Disconnect clients4.google.com:443
+[2018-02-06 19:41:51] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:41:52] [Info] Connect clients4.google.com:443
+[2018-02-06 19:42:01] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:42:18] [Info] Disconnect clients4.google.com:443
+[2018-02-06 19:42:42] [Info] Disconnect github.com:443
+[2018-02-06 19:43:57] [Info] Connect github.com:443
+[2018-02-06 19:43:57] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:43:58] [Info] Connect assets-cdn.github.com:443
+[2018-02-06 19:44:12] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:44:46] [Info] Direct connect kstj.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect kstj.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect zhidao.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect p.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect iknowpc.bdimg.com:443
+[2018-02-06 19:44:46] [Info] Direct connect iknowpc.bdimg.com:443
+[2018-02-06 19:44:46] [Info] Direct connect iknowpc.bdimg.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect iknowpc.bdimg.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.baidu.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect cpro.baidustatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:44:46] [Info] Direct connect iknowpc.bdimg.com:443
+[2018-02-06 19:44:46] [Info] Direct connect iknowpc.bdimg.com:443
+[2018-02-06 19:44:47] [Info] Direct connect su.bdimg.com:443
+[2018-02-06 19:44:47] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 19:44:47] [Info] Connect mtalk.google.com:5228
+[2018-02-06 19:44:48] [Info] Direct connect pos.baidu.com:443
+[2018-02-06 19:44:48] [Info] Connect safebrowsing.google.com:443
+[2018-02-06 19:44:48] [Info] Direct connect entry.baidu.com:443
+[2018-02-06 19:44:48] [Info] Direct connect pos.baidu.com:443
+[2018-02-06 19:44:55] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:44:55] [Info] Direct connect wn.pos.baidu.com:443
+[2018-02-06 19:44:55] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect p.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect p.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect p.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect p.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect ss1.baidu.com:443
+[2018-02-06 19:44:56] [Info] Direct connect ss1.baidu.com:443
+[2018-02-06 19:45:01] [Info] Direct connect eclick.baidu.com:443
+[2018-02-06 19:45:01] [Info] Direct connect eclick.baidu.com:443
+[2018-02-06 19:45:16] [Info] Disconnect github.com:443
+[2018-02-06 19:45:24] [Info] Direct connect safebrowsing-cache.google.com:443
+[2018-02-06 19:47:03] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:47:03] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:47:03] [Info] Disconnect avatars0.githubusercontent.com:443
+[2018-02-06 19:47:03] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:47:03] [Info] Disconnect assets-cdn.github.com:443
+[2018-02-06 19:47:27] [Info] Direct connect www.baidu.com:443
+[2018-02-06 19:47:28] [Info] Direct connect ss0.baidu.com:443
+[2018-02-06 19:47:28] [Info] Direct connect ss1.baidu.com:443
+[2018-02-06 19:47:28] [Info] Direct connect ss2.baidu.com:443
+[2018-02-06 19:47:28] [Info] Direct connect ss3.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect sp0.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect www.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect www.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect ss0.bdstatic.com:443
+[2018-02-06 19:47:30] [Info] Direct connect www.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect www.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect ss2.bdstatic.com:443
+[2018-02-06 19:47:30] [Info] Direct connect ss2.bdstatic.com:443
+[2018-02-06 19:47:30] [Info] Direct connect ss2.bdstatic.com:443
+[2018-02-06 19:47:30] [Info] Direct connect ss2.bdstatic.com:443
+[2018-02-06 19:47:30] [Info] Direct connect sp0.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect sp0.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect sp0.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect sp0.baidu.com:443
+[2018-02-06 19:47:30] [Info] Direct connect sp1.baidu.com:443
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.baidu.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect passport.baidu.com:443
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.baidu.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:41] [Info] Direct connect edu-ad-test-cdn.cdn.bcebos.com:443
+[2018-02-06 19:47:41] [Info] Direct connect click.fanyi.baidu.com:443
+[2018-02-06 19:47:41] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:47:41] [Info] Direct connect click.fanyi.baidu.com:443
+[2018-02-06 19:47:41] [Info] Direct connect fanyi.baidu.com:80
+[2018-02-06 19:47:42] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:42] [Info] Direct connect fanyi.baidu.com:80
+[2018-02-06 19:47:42] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:42] [Info] Direct connect gss0.bdstatic.com:443
+[2018-02-06 19:47:42] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:47:42] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:47:42] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:47:42] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:47:42] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:47:42] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:42] [Info] Direct connect fex.bdstatic.com:80
+[2018-02-06 19:47:42] [Info] Direct connect fanyi.bdstatic.com:80
+[2018-02-06 19:47:47] [Info] Direct connect fanyi.baidu.com:80
+[2018-02-06 19:47:47] [Info] Direct connect fanyi.baidu.com:80
+[2018-02-06 19:47:52] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 19:47:52] [Info] Connect mtalk.google.com:5228
+[2018-02-06 19:48:56] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:48:58] [Info] Direct connect googleads.g.doubleclick.net:443
+[2018-02-06 19:48:58] [Info] Direct connect googleads.g.doubleclick.net:80
+[2018-02-06 19:49:00] [Info] Direct connect googleads.g.doubleclick.net:80
+[2018-02-06 19:49:00] [Info] Direct connect pagead2.googlesyndication.com:80
+[2018-02-06 19:50:44] [Info] Disconnect safebrowsing.google.com:443
+[2018-02-06 19:50:55] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 19:50:55] [Info] Connect mtalk.google.com:5228
+[2018-02-06 19:53:33] [Info] Connect github.com:443
+[2018-02-06 19:53:36] [Info] Connect avatars0.githubusercontent.com:443
+[2018-02-06 19:53:49] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:49] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:50] [Info] Direct connect ssl.ptlogin2.qq.com:443
+[2018-02-06 19:53:50] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:50] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:50] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:51] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:51] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:51] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:51] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:51] [Info] Direct connect ssl.captcha.qq.com:443
+[2018-02-06 19:53:51] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:51] [Info] Direct connect ssl.captcha.qq.com:443
+[2018-02-06 19:53:51] [Info] Direct connect captcha.gtimg.com:443
+[2018-02-06 19:53:51] [Info] Direct connect captcha.gtimg.com:443
+[2018-02-06 19:53:51] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:51] [Info] Direct connect tajs.qq.com:80
+[2018-02-06 19:53:52] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:52] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:52] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:52] [Info] Connect crl3.digicert.com:80
+[2018-02-06 19:53:52] [Info] Connect crl3.digicert.com:80
+[2018-02-06 19:53:52] [Info] Connect crl4.digicert.com:80
+[2018-02-06 19:53:52] [Info] Connect crl4.digicert.com:80
+[2018-02-06 19:53:53] [Info] Disconnect crl3.digicert.com:80
+[2018-02-06 19:53:53] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:53] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:53] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:53] [Info] Disconnect crl3.digicert.com:80
+[2018-02-06 19:53:53] [Info] Direct connect pingtcss.qq.com:80
+[2018-02-06 19:53:53] [Info] Direct connect hm.baidu.com:80
+[2018-02-06 19:53:53] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:53] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:53] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:53] [Info] Connect crl.verisign.com:80
+[2018-02-06 19:53:54] [Info] Connect ss.symcb.com:80
+[2018-02-06 19:53:54] [Info] Disconnect crl.verisign.com:80
+[2018-02-06 19:53:54] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc2.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect tag.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Disconnect crl4.digicert.com:80
+[2018-02-06 19:53:54] [Info] Disconnect crl4.digicert.com:80
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc2.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect tag.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect guanjia.qq.com:80
+[2018-02-06 19:53:54] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:53:54] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:54] [Info] Direct connect pc2.gtimg.com:80
+[2018-02-06 19:53:55] [Info] Direct connect 3gimg.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:55] [Info] Direct connect 3gimg.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect 3gimg.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect 3gimg.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect cgi.urlsec.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect pingjs.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:55] [Info] Direct connect wup.browser.qq.com:443
+[2018-02-06 19:53:55] [Info] Direct connect pc1.gtimg.com:80
+[2018-02-06 19:53:55] [Info] Direct connect pingfore.qq.com:80
+[2018-02-06 19:53:55] [Info] Direct connect p.guanjia.qq.com:80
+[2018-02-06 19:53:58] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 19:53:58] [Info] Connect mtalk.google.com:5228
+[2018-02-06 19:53:59] [Info] Direct connect tag.baidu.com:443
+[2018-02-06 19:53:59] [Info] Disconnect ss.symcb.com:80
+[2018-02-06 19:54:21] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:54:21] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:54:21] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:54:21] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:54:21] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:54:21] [Info] Direct connect hm.baidu.com:443
+[2018-02-06 19:54:41] [Info] Disconnect github.com:443
+[2018-02-06 19:56:42] [Info] Disconnect avatars0.githubusercontent.com:443
+[2018-02-06 19:56:52] [Info] Disconnect clients4.google.com:443
+[2018-02-06 19:56:52] [Info] Connect clients4.google.com:443
+[2018-02-06 19:57:02] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 19:57:02] [Info] Connect mtalk.google.com:5228
+[2018-02-06 19:59:53] [Info] Disconnect clients4.google.com:443
+[2018-02-06 20:00:04] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 20:00:04] [Info] Connect mtalk.google.com:5228
+[2018-02-06 20:00:25] [Info] Connect clients4.google.com:443
+[2018-02-06 20:01:53] [Info] Direct connect www.luogu.org:443
+[2018-02-06 20:01:53] [Info] Direct connect cdn.luogu.org:443
+[2018-02-06 20:01:53] [Info] Direct connect www.recaptcha.net:443
+[2018-02-06 20:01:53] [Info] Direct connect s23.cnzz.com:443
+[2018-02-06 20:01:53] [Info] Direct connect hzs23.cnzz.com:443
+[2018-02-06 20:01:53] [Info] Direct connect c.cnzz.com:443
+[2018-02-06 20:02:03] [Info] Connect clients4.google.com:443
+[2018-02-06 20:02:14] [Info] Direct connect cdn.luogu.org:443
+[2018-02-06 20:02:14] [Info] Direct connect hzs23.cnzz.com:443
+[2018-02-06 20:02:28] [Info] Direct connect qbwup.imtt.qq.com:80
+[2018-02-06 20:03:05] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 20:03:05] [Info] Connect mtalk.google.com:5228
+[2018-02-06 20:03:27] [Info] Disconnect clients4.google.com:443
+[2018-02-06 20:03:29] [Info] Direct connect hzs23.cnzz.com:443
+[2018-02-06 20:06:07] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 20:06:07] [Info] Connect mtalk.google.com:5228
+[2018-02-06 20:06:34] [Info] Disconnect clients4.google.com:443
+[2018-02-06 20:06:58] [Info] Connect clients4.google.com:443
+[2018-02-06 20:06:58] [Info] Direct connect www.luogu.org:443
+[2018-02-06 20:06:58] [Info] Direct connect www.luogu.org:443
+[2018-02-06 20:07:06] [Info] Direct connect ws.luogu.org:443
+[2018-02-06 20:07:06] [Info] Direct connect hzs23.cnzz.com:443
+[2018-02-06 20:07:21] [Info] Direct connect cdn.luogu.org:443
+[2018-02-06 20:07:24] [Info] Direct connect hzs23.cnzz.com:443
+[2018-02-06 20:07:31] [Info] Direct connect ws.luogu.org:443
+[2018-02-06 20:07:31] [Info] Direct connect hzs23.cnzz.com:443
+[2018-02-06 20:07:47] [Info] Connect clients4.google.com:443
+[2018-02-06 20:07:56] [Info] Direct connect googleads.g.doubleclick.net:443
+[2018-02-06 20:07:56] [Info] Direct connect googleads.g.doubleclick.net:80
+[2018-02-06 20:07:57] [Info] Direct connect googleads.g.doubleclick.net:80
+[2018-02-06 20:08:26] [Info] Connect www.google.com.ph:443
+[2018-02-06 20:08:26] [Info] Connect adservice.google.com.ph:443
+[2018-02-06 20:08:26] [Info] Connect apis.google.com:443
+[2018-02-06 20:08:26] [Info] Connect id.google.com.ph:443
+[2018-02-06 20:08:27] [Info] Connect notifications.google.com:443
+[2018-02-06 20:08:27] [Info] Connect ogs.google.com:443
+[2018-02-06 20:08:27] [Info] Direct connect ssl.gstatic.com:443
+[2018-02-06 20:08:27] [Info] Connect lh3.googleusercontent.com:443
+[2018-02-06 20:08:27] [Info] Connect www.google.com:443
+[2018-02-06 20:08:27] [Info] Direct connect www.gstatic.com:443
+[2018-02-06 20:08:27] [Info] Connect www.google.com.ph:443
+[2018-02-06 20:08:28] [Info] Connect clients5.google.com:443
+[2018-02-06 20:08:33] [Info] Direct connect fonts.gstatic.com:443
+[2018-02-06 20:08:33] [Info] Connect play.google.com:443
+[2018-02-06 20:08:33] [Info] Connect play.google.com:443
+[2018-02-06 20:08:37] [Debug] DNS query fail: xn--5brr72a.gitignore
+[2018-02-06 20:08:37] [Info] Connect xn--5brr72a.gitignore:80
+[2018-02-06 20:08:37] [Info] Disconnect xn--5brr72a.gitignore:80
+[2018-02-06 20:08:38] [Info] Disconnect www.google.com.ph:443
+[2018-02-06 20:08:47] [Info] Disconnect play.google.com:443
+[2018-02-06 20:08:47] [Info] Disconnect lh3.googleusercontent.com:443
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect tieba.baidu.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect common.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect a1.cnblogs.com:80
+[2018-02-06 20:08:48] [Info] Direct connect a1.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect a1.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.google-analytics.com:443
+[2018-02-06 20:08:49] [Info] Direct connect counter.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect images2017.cnblogs.com:443
+[2018-02-06 20:08:49] [Info] Direct connect images2017.cnblogs.com:443
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect common.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect common.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect pic.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect static.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect static.cnblogs.com:80
+[2018-02-06 20:08:49] [Info] Direct connect www.cnblogs.com:80
+[2018-02-06 20:09:13] [Info] Disconnect mtalk.google.com:5228
+[2018-02-06 20:09:13] [Info] Connect mtalk.google.com:5228
