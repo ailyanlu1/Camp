@@ -2,12 +2,12 @@
 	"configs" : [
 		{
 			"remarks" : "",
-			"id" : "915628198EB7DCD6EB31731BA77D35BD",
+			"id" : "75E21C49A671E3A9850026063CF03856",
 			"server" : "lax-1.qnode.gdn",
 			"server_port" : 12660,
 			"server_udp_port" : 0,
 			"password" : "Yna8cK4XcB",
-			"method" : "aes-256-cfb",
+			"method" : "chacha20",
 			"protocol" : "origin",
 			"protocolparam" : "",
 			"obfs" : "plain",
