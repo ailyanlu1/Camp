@@ -1,0 +1,1432 @@
+\documentclass[cjk]{beamer}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\lstset{
+  numbers=none,
+  framexleftmargin=10mm,
+  frame=none,
+  %backgroundcolor=\color[rgb]{1,1,0.76},
+  backgroundcolor=\color[RGB]{255,255,255},
+  keywordstyle=\bf\color{blue},
+  identifierstyle=\bf,
+  numberstyle=\color[RGB]{0,192,192},
+  commentstyle=\it\color[RGB]{0,96,96},
+  stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+  showstringspaces=false
+  }
+\usepackage{CJK}
+%\usepackage{beamerthemeshadow} %该为一现成的模板，在 MiKTeX\texmf\tex\latex\beamer\themes\theme下面有很多
+
+\usetheme{Warsaw} %{Madrid}
+
+\begin{document} %申明文档的开始
+\begin{CJK*}{GBK}{kai}     %CJK:支持中文
+\title{数据结构}
+
+\author{$nbdhhzh$}
+
+\date{\today}
+
+    \begin{frame} %beamer里重要的概念，每个frame 定义一张page
+
+        \titlepage
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{栈}
+        \qquad 栈是一种特殊的线性表，只能从固定的方向进出，而且栈进出的基本原则是：先进栈的元素后出栈。
+        \pause
+
+        \begin{itemize}
+          \item 栈顶：允许操作的一端。
+          \pause
+          \item 栈底：不允许操作的一端。
+          \pause
+        \end{itemize}
+
+        \qquad 一般我们用数组或链表来实现栈。
+        \pause
+
+        \qquad 插入删除操作时间复杂度$O(1)$，空间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{铁轨}
+        \qquad 某城市有一个火车站，铁轨铺设如图所示。有$n$节车厢从A方向驶入车站，按进站顺序编号为$1\sim n$。
+        \pause
+
+        \qquad \includegraphics[scale=0.4]{T1.jpg}
+        \pause
+
+        \qquad 你的任务是让它们按照某种特定的顺序进入B方向的铁轨并驶出车站，对于输入指定进入B方向的铁轨并驶出车站的顺序，判断是否可行。
+        \pause
+
+        \qquad $n\leq 10^5$
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{铁轨}
+        \qquad 直接模拟栈判断是否合法即可。
+        \pause
+
+        \qquad 时间复杂度$O(n)$。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2006 Nov]Bad Hair Day 乱发节}
+
+        \qquad \includegraphics[scale=0.3]{T2.png}
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2006 Nov]Bad Hair Day 乱发节}
+        \qquad 首先我们从前向后扫，用一个自底向上单调递减的单调栈来维护扫过的所有数。
+        \pause
+
+        \qquad 每当扫到一个新的数，我们把栈顶所有小于这个数的元素弹出栈，这样就可以求出这个元素前面第一个大于等于他的元素。
+        \pause
+
+        \qquad 之后再把这个数塞入栈顶即可。
+        \pause
+
+        \qquad 时间复杂度$O(n)$。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{[JSOI2008]最大数maxnumber}
+        \qquad 现在请求你维护一个数列，有$m$组询问和操作：
+        \pause
+        \begin{itemize}
+          \item Q\ L\ 查询当前数列中末尾L个数中的最大的数
+          \pause
+          \item A\ n\ 将n加上t，其中t是最近一次查询操作的答案，并将所得结果对一个固定的常数D取模，把答案插入到数列的末尾。
+          \pause
+        \end{itemize}
+        \qquad $m\leq 200000$
+    \end{frame}
+    \begin{frame}
+        \frametitle{[JSOI2008]最大数maxnumber}
+        \qquad 由于只有在末尾加数的操作，所以我们可以考虑用一个自底向上单调递减的单调栈来维护数列中的所有数。
+        \pause
+
+        \qquad 查询前缀最大值可以在单调栈上二分出对应的位置，求出最大值。
+        \pause
+
+        \qquad 添加数的时候只要将栈顶小于等于当前数的元素全部弹出栈即可。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{队列}
+        \qquad 队列是一种特殊的线性表，特殊之处在于它只允许在表的前端进行删除操作，而在表的后端进行插入操作。
+        \pause
+
+        \begin{itemize}
+          \item 队首：只允许删除操作的一端。
+          \pause
+          \item 队尾：只允许插入操作的一端。
+          \pause
+        \end{itemize}
+
+        \qquad 一般我们用数组或链表来实现队列。
+        \pause
+
+        \qquad 循环队列：循环利用数组空间来缩小储存队列所需的空间。
+        \pause
+
+        \qquad 插入删除操作时间复杂度$O(1)$，空间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{滑动的窗户}
+        \qquad 在一个包含n个元素的数组上，有一个长度为k的窗户在从左向右滑动。窗户每滑动到一个位置，我们都可以看到k个元素在窗户中。
+        \pause
+
+        \qquad 对于窗户滑动过的每个位置，请给出窗户内k个元素的最小值和最大值。
+        \pause
+
+        \qquad $n\leq 10^6$
+    \end{frame}
+    \begin{frame}
+        \frametitle{滑动的窗户}
+        \qquad 首先我们可以枚举区间结尾，用一个单调递减的数列维护区间最大值，一个单调递增的数列维护区间最小值。
+        \pause
+
+        \qquad 每次我们先把队列开头不合法的元素出队，之后输出队列中的第一个元素，再把队列末尾小于/大于当前值的元素出队，最后把当前值放到两个队列末尾即可。
+        \pause
+
+        \qquad 时间复杂度$O(n)$
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2011 Open]修剪草坪}
+        \qquad FJ有n只排成一排的奶牛，编号为$1\sim n$。每只奶牛的效率是不同的，奶牛$i$的效率为$E_i$。
+        \pause
+
+        \qquad 靠近的奶牛们很熟悉，因此，如果FJ 安排超过$k$只连续的奶牛，那么，这些奶牛就会罢工去开派对。
+        \pause
+
+        \qquad 因此，现在FJ需要你的帮助，计算FJ 可以得到的最大效率，并且该方案中没有连续的超过K只奶牛。
+        \pause
+
+        \qquad $n\leq 10^5,E_i\leq 10^9$
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2011 Open]修剪草坪}
+        \qquad 可以将问题转化为删去效率和最小的奶牛，删去的相邻两只奶牛之间距离不能大于$k$。
+        \pause
+
+        \qquad 用$f_i$表示删去第$i$只奶牛，前$i$ 只奶牛合法删去的最小效率和。
+        \pause
+
+        \qquad $f_i=min(f_{i-j}+E_i(1\leq j\leq k)$，直接暴力是$O(n^2)$的。
+        \pause
+
+        \qquad 所以我们可以用一个单调递增的队列维护$f_{i-k\sim i-1}$的情况，首先判断单调队列第一项是否还在范围内，之后用第一项更新$f_i$，最后把单调队列末尾比$f_i$大的项删除，把$f_i$放入单调队列末尾。
+        \pause
+
+        \qquad 时间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{链表}
+        \qquad 链表是一种物理存储单元上非连续、非顺序的存储结构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。
+        \pause
+
+        \qquad 与数组不同，链表插入删除元素时间复杂度为$O(1)$，查询元素的复杂度为$O(n)$。
+        \pause
+
+        \qquad 很多时候我们可以用数组模拟链表。
+        \pause
+
+        \qquad \includegraphics[scale=0.4]{linked-list.jpg}
+        \pause
+
+        \qquad 插入删除时间复杂度$O(1)$，查询时间复杂度$O(n)$，空间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2006 Nov]Bad Hair Day 乱发节}
+
+        \qquad \includegraphics[scale=0.3]{T2.png}
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2006 Nov]Bad Hair Day 乱发节}
+
+        \qquad 首先我们可以将奶牛按照顺序用双端链表连起来。
+        \pause
+
+        \qquad 之后从小到大枚举每头奶牛，求出这头奶牛在链表中的左端节点，之后把这个元素从链表中删除。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{并查集}
+        \qquad 并查集是一种树型的数据结构，用于处理一些不相交集合的合并及查询问题。常常在使用中以森林来表示。
+        \pause
+
+        \qquad 初始时，我们将每个节点的dad数组设为本身。之后在合并x,y时，我们找到两个点的祖先X,Y，将$dad[X]=Y$即可。
+        \pause
+
+        \qquad 为了保证复杂度，我们通常使用路径压缩和按秩合并来优化。
+        \pause
+
+        \qquad 时间复杂度$O(\alpha(n))$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P1621 集合}
+        \qquad 现在给你一些连续的整数，它们是从A 到B的整数。一开始每个整数都属于各自的集合，然后你需要进行一下的操作：
+        \pause
+
+        \qquad 每次选择两个属于不同集合的整数，如果这两个整数拥有大于等于P的公共质因数，那么把它们所在的集合合并。
+        \pause
+
+        \qquad 反复如上操作，直到没有可以合并的集合为止。
+        \pause
+
+        \qquad 现在Caima想知道，最后有多少个集合。
+        \pause
+
+        \qquad $n,A,B\leq 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P1621 集合}
+        \qquad 我们可以枚举所有大于等于p的质因数，之后枚举这个数的倍数，将这些数所在的集合都用并查集并起来。
+        \pause
+
+        \qquad 根据调和级数的原理，这样的复杂度是合法的。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n\alpha(n))$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P2170 选学霸}
+        \qquad 老师想从N名学生中选M人当学霸，但有K对人实力相当，如果实力相当的人中，一部分被选上，另一部分没有，同学们就会抗议。
+        \pause
+
+        \qquad 所以老师想请你帮他求出他该选多少学霸，才能既不让同学们抗议，又与原来的M 尽可能接近。
+        \pause
+
+        \qquad 数据范围$N,k\leq 20000$
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P2170 选学霸}
+        \qquad 题目要求所有实力相同的人要么都是学霸要么都不是。
+        \pause
+
+        \qquad 所以我们可以用并查集将所有实力相同的人并起来，之后用01背包求出最优方案。
+        \pause
+
+        \qquad 时间复杂度$O(n^2)$
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P1197 [JSOI2008]星球大战}
+        \qquad 很久以前，在一个遥远的星系，一个黑暗的帝国靠着它的超级武器统治者整个星系。某一天，凭着一个偶然的机遇，一支反抗军摧毁了帝国的超级武器，并攻下了星系中几乎所有的星球。这些星球通过特殊的以太隧道互相直接或间接地连接。
+        \pause
+
+        \qquad 但好景不长，很快帝国又重新造出了他的超级武器。凭借这超级武器的力量，帝国开始有计划地摧毁反抗军占领的星球。由于星球的不断被摧毁，两个星球之间的通讯通道也开始不可靠起来。现在，反抗军首领交给你一个任务：给出原来两个星球之间的以太隧道连通情况以及帝国打击的星球顺序，以尽量快的速度求出每一次打击之后反抗军占据的星球的连通快的个数。（如果两个星球可以通过现存的以太通道直接或间接地连通，则这两个星球在同一个连通块中）。
+        \pause
+
+        \qquad 数据范围$n\leq 400000,m\leq 200000$
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P1197 [JSOI2008]星球大战}
+        \qquad 我们可以将所有操作顺序倒过来，从摧毁星球变成建造星球。
+        \pause
+
+        \qquad 这样我们就可以用并查集解决问题了。
+        \pause
+
+        \qquad 时间复杂度$O(n\alpha(n))$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P2024 食物链}
+        \qquad 动物王国中有三类动物 A,B,C，这三类动物的食物链构成了有趣的环形。A吃B，B吃C，C吃A。
+        \pause
+
+        \qquad 现有 N 个动物，以$1\sim N$编号。每个动物都是 A,B,C 中的一种，但是我们并不知道它到底是哪一种。
+        \pause
+
+        \qquad 有人用两种说法对这 N 个动物所构成的食物链关系进行描述：
+        \pause
+        \begin{itemize}
+          \item 第一种说法是“1 X Y”，表示 X 和 Y 是同类。
+          \pause
+          \item 第二种说法是“2 X Y”，表示 X 吃 Y 。
+          \pause
+        \end{itemize}
+
+        \qquad 此人对 N 个动物，用上述两种说法，一句接一句地说出 K 句话，这 K 句话有的是真的，有的是假的。当一句话满足下列三条之一时，这句话就是假话，否则就是真话。
+        \pause
+        \begin{itemize}
+          \item 当前的话与前面的某些真的话冲突，就是假话
+          \pause
+          \item 当前的话中X或Y比N大，就是假话
+          \pause
+          \item 当前的话表示X吃X，就是假话
+          \pause
+        \end{itemize}
+
+        \qquad 你的任务是根据给定的 N 和 K 句话，输出假话的总数。$n,m\leq 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{洛谷P2024 食物链}
+        \qquad 在这题中，普通的并查集并不能满足我们的需求，所以这里讲一种带权并查集。
+        \pause
+
+        \qquad 我们将3种关系分别用0,1,2表示，0表示同类，1表示吃，2表示被吃。
+        \pause
+
+        \qquad 假如我们已经知道了x和y，y和z的关系，那我们就可以通过简单的相加后对3取模求得x和z之间的关系。
+        \pause
+
+        \qquad 所以我们在用并查集的时候对于每一条连向父亲的边都保存该边的权值即可。
+        \pause
+
+        \qquad 时间复杂度$O(n\alpha(n))$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{堆}
+        \qquad 堆为一棵二叉树，满足以下两个性质
+        \pause
+
+        \begin{itemize}
+          \item 父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值。
+          \pause
+          \item 每个结点的左子树和右子树都是一个堆
+          \pause
+        \end{itemize}
+
+        \qquad 根据功能和实现上的差异分为以下几种
+        \pause
+        \begin{itemize}
+          \item 二叉堆
+          \pause
+          \item 可并堆
+          \pause
+          \item 斜堆
+          \pause
+        \end{itemize}
+
+        \qquad 插入删除时间复杂度$O(\log n)$，空间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{二叉堆}
+        \qquad 一般的，二叉堆是一棵完全二叉树，支持插入节点，删除节点，求最小值等操作。
+        \pause
+
+        \qquad 我们用一个数组来保存二叉堆，根节点的下标为1，节点$x$的左右儿子下标分别为$2n-1,2n$。
+        \pause
+
+        \qquad 在插入节点时，我们首先将这个节点放在二叉堆数组的末尾，然后和它的父节点比较，如果新元素比父节点元素大则交换这两个节点，然后再和新位置的父节点比较，直到它的父节点不再比它小，或者已经到达顶端，即第1的位置。
+        \pause
+
+        \qquad 在删除节点时，我们首先用二叉堆末尾节点替换该节点，之后将末尾节点向下pushdown，即每次和左右儿子中较小的比较，如果儿子比较小则交换两个节点。
+        \pause
+
+        \qquad 查询时只要简单提取数组中第一项元素即可。
+    \end{frame}
+    \begin{frame}
+        \frametitle{NOIP2004合并果子}
+        \qquad 在一个果园里，多多已经将所有的果子打了下来，而且按果子的不同种类分成了不同的堆。多多决定把所有的果子合成一堆。
+        \pause
+
+        \qquad 每一次合并，多多可以把两堆果子合并到一起，消耗的体力等于两堆果子的重量之和。可以看出，所有的果子经过n-1次合并之后，就只剩下一堆了。多多在合并果子时总共消耗的体力等于每次合并所耗体力之和。
+        \pause
+
+        \qquad 因为还要花大力气把这些果子搬回家，所以多多在合并果子时要尽可能地节省体力。假定每个果子重量都为1，并且已知果子的种类数和每种果子的数目，你的任务是设计出合并的次序方案，使多多耗费的体力最少，并输出这个最小的体力耗费值。
+        \pause
+
+        \qquad 例如有3种果子，数目依次为1，2，9。可以先将1、2堆合并，新堆数目为3，耗费体力为3。接着，将新堆与原先的第三堆合并，又得到新的堆，数目为12，耗费体力为12。所以多多总共耗费体力=3+12=15。 可以证明15为最小的体力耗费值。
+        \pause
+
+        \qquad 数据范围$n\leq 10000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{NOIP2004合并果子}
+        \qquad 发现一定是每次合并最小的两个果子比较合理。
+        \pause
+
+        \qquad 可以用一个堆来维护所有存在的果子，每次取出最小的两个果子，加起来后再放回堆中。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2009 Open]工作安排Job}
+        \qquad FJ的工作日从0时刻开始，有1000000000个单位时间。在任一时刻，他都可以选择编号$1\sim n$的$n$项工作中的任意一项工作来完成。
+        \pause
+
+        \qquad 因为他在每个单位时间里只能做一个工作，而每项工作又有一个截止日期，所以他很难有时间完成所有N个工作，虽然还是有可能。
+        \pause
+
+        \qquad 对于第$i$个工作，有一个截止时间$D_i$，如果他可以完成这个工作，那么他可以获利$P_i$。在给定的工作利润和截止时间下，FJ能够获得的利润最大为多少呢？
+        \pause
+
+        \qquad 数据范围$1\leq n\leq 100000,1\leq P_i,D_i\leq 10^9$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Usaco2009 Open]工作安排Job}
+        \qquad 由于每个工作的开始时间都相同，所以我们可以考虑把时间轴倒过来。
+        \pause
+
+        \qquad 我们从后向前扫每个时间点，每次将刚好在这个时间点结束的所有工作放入堆中，之后将这个堆最大的元素作为当前时间点完成的工作。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{【bzoj2151】种树}
+        \qquad A城市有一个巨大的圆形广场，为了绿化环境和净化空气，市政府决定沿圆形广场外圈种一圈树。
+        \pause
+
+        \qquad 园林部门得到指令后，初步规划出n个种树的位置，顺时针编号1到n。并且每个位置都有一个美观度$A_i$，如果在这里种树就可以得到这$A_i$的美观度。但由于A城市土壤肥力欠佳，两棵树决不能种在相邻的位置。最终市政府给园林部门提供了m棵树苗并要求全部种上，请你帮忙设计种树方案使得美观度总和最大。如果无法将m棵树苗全部种上，给出无解信息。
+        \pause
+
+        \qquad 数据范围$n,m\leq 2*10^5$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{【bzoj2151】种树}
+        \qquad 首先把整个环用双向链表套起来。
+        \pause
+
+        \qquad 之后每次找到环上权值最大的节点，更新答案，之后将它的权值更新为该节点左右两个节点减去该节点权值，最后将左右两个节点从双向链表中删除即可。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{可并堆}
+        \qquad 可并堆有很多种类，这里主要讲最常用的一种——左偏树。
+        \pause
+
+        \qquad 在左偏树中，每个节点包含两个属性——权值和距离(dist)。除了之前二叉堆支持的操作外，左偏树还支持合并(merge)操作。
+        \pause
+
+        \qquad 左偏树的每个节点都满足左儿子的dist大于等于右儿子的dist，每个节点的dist 值即为该子树中与该节点最近的点的距离。
+        \pause
+
+        \qquad 在合并两个左偏树时，用x表示根权值较小的左偏树，y表示另一棵左偏树，那么我们就将x的根作为合并后的根，再将x的右子树和y合并作为合并后的右子树，最后再比较左右子树dist大小进行交换。
+        \pause
+
+        \qquad 在删除最小值时，只要把根的左右儿子merge起来作为新的左偏树即可。
+        \pause
+
+        \qquad 由于每个节点的左子树深度都大于等于右子树，所以$dist=x$的左偏树至少有$2^x$个节点。
+        \pause
+
+        \qquad 单次操作时间复杂度$O(\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[hdu1512]猴子打架}
+        \qquad 有N只猴子, 每只都有一个力量值。开始的时候互不认识, 它们之间会发生M次斗争. 每次发生a,b的斗争时，a,b都会从各自的朋友圈里拉出一个最强的, 之后两只猴子打, 打完后这两只猴子的力量值各减半。并且打完后, 两只猴子的朋友圈的所有人都互相认识(也就是不会再打)。
+        \pause
+
+        \qquad 你的任务就是对于每个斗争, 若a, b 是朋友, 那么输出-1, 否则输出打完后它们的朋友圈的最强猴子的力量值。
+        \pause
+
+        \qquad 数据范围$n,m\leq 10^5$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[hdu1512]猴子打架}
+        \qquad 首先用并查集来维护朋友关系。
+        \pause
+
+        \qquad 同时对于每个并查集维护一个可并堆，在两个猴子开始打架时提取这两个可并堆的最大值，修改后将两个可并堆合并起来并更新并查集信息。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Apio2012]dispatching}
+        \qquad 在一个忍者的帮派里，一些忍者们被选中派遣给顾客，然后依据自己的工作获取报偿。在这个帮派里，有一名忍者被称之为Master。除了Master以外，每名忍者都有且仅有一个上级。
+        \pause
+
+        \qquad 为保密，同时增强忍者们的领导力，所有与他们工作相关的指令总是由上级发送给他的直接下属，而不允许通过其他的方式发送。现在你要招募一批忍者，并把它们派遣给顾客。你需要为每个被派遣的忍者支付一定的薪水，同时使得支付的薪水总额不超过你的预算。另外，为了发送指令，你需要选择一名忍者作为管理者，要求这个管理者可以向所有被派遣的忍者 发送指令，在发送指令时，任何忍者（不管是否被派遣）都可以作为消息的传递人。
+        \pause
+
+        \qquad 管理者自己可以被派遣，也可以不被派遣。当然，如果管理者没有被排遣，就不需要支付管理者的薪水。你的目标是在预算内使顾客的满意度最大。这里定义顾客的满意度为派遣的忍者总数乘以管理者的领导力水平，其中每个忍者的领导力水平也是一定的。写一个程序，给定每一个忍者i的上级$B_i$，薪水$C_i$，领导力$L_i$，以及支付给忍者们的薪水总预算$M$，输出在预算内满足上述要求时顾客满意度的最大值。
+        \pause
+
+        \qquad 数据范围$n\leq 10^5$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{[Apio2012]dispatching}
+        \qquad 问题相当于要对于每个子树求出最多多少个最小数和小于等于M。
+        \pause
+
+        \qquad 考虑对整棵树进行dfs，对于每个子树用最大可并堆维护该子树中最小的和小于等于M的数。
+        \pause
+
+        \qquad 对于任意一个节点，它的可并堆即为它几个子树的可并堆合并起来，之后删去最大的那些数直到剩下所有数的和满足条件为止。
+        \pause
+
+        \qquad 由于每个元素最多只会被删除一次，所以时间复杂度合法。
+        \pause
+
+        \qquad 时间复杂度$o(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{树状数组}
+        \qquad 树状数组支持单点修改和前缀查询。
+        \pause
+
+        \qquad 通过加特技可以使得树状数组支持更多操作。
+        \pause
+
+        \qquad \includegraphics[scale=0.35]{binary-indexed-tree.jpg}
+        \pause
+
+        \qquad 单次操作时间复杂度$O(\log n)$，空间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{二叉搜索树}
+        \qquad 二叉搜索树(BST)，也叫平衡树，它或者是一棵空树，或者是具有下列性质的二叉树： 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；它的左、右子树也分别为二叉排序树。
+        \pause
+
+        \qquad 根据功能和实现上的差异分为以下几种
+        \pause
+        \begin{itemize}
+          \item 基于旋转(splay,treap,AVL树等)
+          \pause
+          \item 基于重构(替罪羊树，朝鲜树)
+          \pause
+          \item 基于可并堆(fhq-treap)
+          \pause
+        \end{itemize}
+
+        \qquad 多数平衡树插入删除时间复杂度$O(\log n)$，空间复杂度$O(n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{treap}
+        \qquad treap是一种平衡树，除了平衡树的特点之外，treap中每个节点还有一个随机的额外权值。
+        \pause
+
+        \qquad treap根据额外权值满足堆的性质，即每个节点左右儿子的额外权值都大于该节点。
+        \pause
+
+        \qquad 在随机权值互不相等的情况下，权值与treap是一一对应的。
+        \pause
+
+        \qquad 由于堆的权值是随机的，所以树的期望深度为$\log n$。
+        \pause
+
+        \qquad 我们主要利用旋转(rotate)来维护平衡树的性质。
+        \pause
+    \end{frame}
+    \begin{frame}
+        \frametitle{rotate}
+        \qquad \includegraphics[scale=0.35]{rotate.png}
+        \pause
+    \end{frame}
+    \begin{frame}
+        \frametitle{treap}
+        \qquad 发现旋转操作不会改变平衡树的性质，只会让两个元素上下位置交换。
+        \pause
+
+        \qquad 所以我们在插入点时，只要在treap中找到恰好能插入这个点的位置，将这个点插入，再通过rotate操作将他向上移动直到满足堆的性质。
+        \pause
+
+        \qquad 在删除点时，只要利用rotate操作将这个点转到叶子节点并将它删去即可。
+        \pause
+
+        \qquad 单次操作时间复杂度$O(\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{splay}
+        \qquad splay也是一种平衡树，满足平衡树的所有性质。
+        \pause
+
+        \qquad 与treap不同的是，splay依赖双旋均摊来保证复杂度。
+        \pause
+
+        \qquad splay的基本操作函数splay(x)表示将点$x$旋转到根。
+        \pause
+
+        \qquad splay函数中的旋转根据3种不同的情况进行分类讨论。
+    \end{frame}
+    \begin{frame}
+        \frametitle{zig Step}
+        \qquad \includegraphics[scale=0.35]{zig.png}
+        \pause
+
+        \qquad 当p为根节点时，进行zip step操作。
+        \pause
+
+        \qquad 当x是p的左孩子时，对x右旋；
+        \pause
+
+        \qquad 当x是p的右孩子时，对x左旋。
+    \end{frame}
+    \begin{frame}
+        \frametitle{Zig-Zig Step}
+        \qquad \includegraphics[scale=0.35]{zig-zig.png}
+        \pause
+
+        \qquad 当p不是根节点，且x和p同为左孩子或右孩子时进行Zig-Zig操作。
+        \pause
+
+        \qquad 当x和p同为左孩子时，依次将p和x右旋；
+        \pause
+
+        \qquad 当x和p同为右孩子时，依次将p和x左旋。
+    \end{frame}
+    \begin{frame}
+        \frametitle{Zig-Zag Step}
+        \qquad \includegraphics[scale=0.35]{zig-zag.png}
+        \pause
+
+        \qquad 当p不是根节点，且x和p不同为左孩子或右孩子时，进行Zig-Zag操作。
+        \pause
+
+        \qquad 当p为左孩子，x为右孩子时，将x左旋后再右旋。
+        \pause
+
+        \qquad 当p为右孩子，x为左孩子时，将x右旋后再左旋。
+    \end{frame}
+    \begin{frame}
+        \frametitle{splay}
+        \qquad 在插入元素时，和treap类似，只是在插入完之后需要将插入的元素进行一遍splay。
+        \pause
+
+        \qquad 在删除元素时，先把该元素splay到根，如果这个元素只有一个儿子，那直接删除这个点即可。否则找到左子树中权值最大的点x，用x代替这个点，同时用x的左儿子代替点x。
+        \pause
+
+        \qquad 在分离splay时，把左侧最大的节点splay到根，之后切断该点与右儿子之间的边即可。
+        \pause
+
+        \qquad 在合并splay时，把较小的splay中最大的节点splay到根，之后把该点右儿子设置为较大的splay的根。
+    \end{frame}
+    \begin{frame}
+        \frametitle{fhq-treap}
+        \qquad 可以让treap资兹以下功能：
+        \pause
+
+        \begin{itemize}
+          \item 区间增减
+          \pause
+          \item 区间求最小
+          \pause
+          \item 区间反转（倒序）
+          \pause
+          \item 区间移动（把一段剪切、粘贴）
+        \end{itemize}
+        \pause
+
+        \qquad fhq-treap是一种不基于旋转的treap。基本操作为split和merge。
+        \pause
+
+        \qquad 利用的是类似可并堆的思想。
+    \end{frame}
+    \begin{frame}
+        \frametitle{替罪羊树}
+        \qquad 替罪羊树是一种基于部分重建的自平衡二叉搜索树。在替罪羊树上，插入或删除节点的平摊最坏时间复杂度是$O(\log n)$，搜索节点的最坏时间复杂度是$O(\log n)$。
+        \pause
+
+        \qquad 在非平衡的二叉搜索树中，每次操作以后检查操作路径，找到最高的满足$\max(size_{son_L},size_{son_R})>\alpha*size_{this}$ 的结点，重建整个子树。这样就得到了替罪羊树，而被重建的子树的原来的根就被称为替罪羊节点。
+        \pause
+
+        \qquad 在合理设置$alpha$的情况下，算法常数可以非常小。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3224普通平衡树}
+        \qquad 您需要写一种数据结构（可参考题目标题），来维护一些数，其中需要提供以下操作：
+        \pause
+
+        \begin{itemize}
+          \item 插入x数
+          \pause
+          \item 删除x数(若有多个相同的数，因只删除一个)
+          \pause
+          \item 查询x数的排名(若有多个相同的数，因输出最小的排名)
+          \pause
+          \item 查询排名为x的数
+          \pause
+          \item 求x的前驱(前驱定义为小于x，且最大的数)
+          \pause
+          \item 求x的后继(后继定义为大于x，且最小的数)
+          \pause
+        \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3223普通平衡树}
+        \qquad 直接使用splay或者treap按照提议模拟即可。
+        \pause
+
+        \qquad 在求前驱时只要在平衡树中按照搜索x-1的方式向下走，用经过的所有满足条件的点更新最大值即可。求后继同理。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3223文艺平衡树}
+        \qquad 您需要写一种数据结构（可参考题目标题），来维护一个有序数列，其中需要提供以下操作：
+        \pause
+
+        \qquad 翻转一个区间，例如原有序序列是$5,4,3,2,1$，翻转区间是$[2,4]$的话，结果是$5,2,3,4,1$。
+        \pause
+
+        \qquad 数据范围$n\leq 100000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3223文艺平衡树}
+        \qquad 可以利用splay，每次操作将区间$[l,r]$左侧点$l-1$旋转到根，将区间右侧点$r+1$旋转到根右儿子，这时区间对应的就是根右儿子的左儿子。给这个节点打上翻转标记即可。
+        \pause
+
+        \qquad 如果使用fhq treap，我们可以先将区间通过两次split分离出来，打上标记再merge 回去。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj2733: [HNOI2012]永无乡}
+        \qquad 永无乡包含$n$座岛，编号从$1$到$n$，每座岛都有自己的独一无二的重要度，按照重要度可以将这$n$座岛排名，名次用$1$ 到$n$来表示。
+        \pause
+
+        \qquad 某些岛之间由巨大的桥连接，通过桥可以从一个岛到达另一个岛。如果从岛$a$出发经过若干座（含$0$座）桥可以到达岛$b$，则称岛$a$和岛$b$ 是连通的。
+        \pause
+
+        \qquad 现在有两种操作：
+        \pause
+        \begin{itemize}
+          \item B x y 表示在岛$x$与岛$y$之间修建一座新桥。
+          \pause
+          \item Q x k 表示询问当前与岛$x$连通的所有岛中第$k$重要的是哪座岛，即输出所有与岛$x$连通的岛中重要度排名第$k$小的岛的编号。
+          \pause
+        \end{itemize}
+        \qquad 数据范围$n\leq 100000$，$q\leq 300000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj2733: [HNOI2012]永无乡}
+        \qquad 第一种做法是对于每一个连通块建一个splay维护，在合并时使用启发式合并，时间复杂度为$O(n\log^2 n)$。
+        \pause
+
+        \qquad 第二种做法是对于每个连通块建一个动态加点线段树维护，线段树合并时间复杂度为$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{codechef Dynamic Trees and Queries Solved}
+        \qquad 给定一棵n个节点的带点权的树。
+        \pause
+
+        \qquad 接下来进行m次操作，操作有以下四种：
+        \pause
+        \begin{itemize}
+          \item 加入一个给定点权的叶子。
+          \pause
+          \item 删除一个子树。
+          \pause
+          \item 给一个子树中的所有节点的权值加上一个值。
+          \pause
+          \item 询问一个子树中的权值和。
+          \pause
+        \end{itemize}
+        \qquad 树根为1号节点。强制在线。
+        \pause
+
+        \qquad 数据范围$n\leq 100000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{codechef Dynamic Trees and Queries Solved}
+        \qquad 由于没有换根，所以我们可以考虑对dfs序进行操作。
+        \pause
+
+        \qquad 操作1相当于在dfs序中插入一个节点。
+        \pause
+
+        \qquad 操作2相当于在dfs序中删除一段。
+        \pause
+
+        \qquad 操作3相当于dfs序上区间加一个数。
+        \pause
+
+        \qquad 操作4相当于询问dfs序上区间和。
+        \pause
+
+        \qquad 用splay或者fhq-treap都可以解决。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3678wangxz与OJ}
+        \qquad 维护一个初始有$n$个元素的序列(标记为$1\sim n$号元素)，支持以下操作：
+        \begin{itemize}
+          \item 在$p$位置和$p+1$位置之间插入整数:$a,a+1,a+2,...,b-1,b$。若$p$ 为$0$，插在序列最前面。
+          \pause
+          \item 删除$a,a+1,a+2,...,b-1,b$位置的元素。
+          \pause
+          \item 查询$p$位置的元素。
+          \pause
+        \end{itemize}
+        \qquad 数据范围$n,m\leq 100000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3678wangxz与OJ}
+        \qquad 操作2、3都没有难点，难点在于操作1。
+        \pause
+
+        \qquad 通过思考，发现我们可以将操作1加入的所有节点合并为一个带有size的大节点。
+        \pause
+
+        \qquad 这样查询也可以简单地进行，关键来到了删除。
+        \pause
+
+        \qquad 发现删除一段区间除了最左侧和最右侧的两个大节点，否则都是删光的。所以对于最左侧最右侧特判即可。
+        \pause
+
+        \qquad 用fhq-treap或splay都可以解决。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{Simple Queries}
+        \qquad 给定一个长度为$n$的数列和$m$个操作：
+        \pause
+
+        \begin{itemize}
+          \item 定义$S$为区间$[L,R]$中出现过的数字的集合，求$\sum 1\leq i<j<k\leq|S| S_iS_jS_k \mod 1000000007$。
+          \pause
+          \item 插入一个数。
+          \pause
+          \item 删除一个数。
+          \pause
+          \item 修改一个位置的值。
+          \pause
+        \end{itemize}
+        \qquad 数据范围$n,m\leq 100000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{Simple Queries}
+        \qquad 问题的难点在于第一问。
+        \pause
+
+        \qquad 考虑用$A$表示区间内元素的3次和，用$B$表示区间内元素的2次和，用$C$表示区间内元素的和。
+        \pause
+
+        \qquad 那么得到$ans=\frac{C^3-3BC+2A}{6}$。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{线段树}
+        \qquad 线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点，主要支持区间修改查询操作。
+        \pause
+
+        \qquad 对于线段树中的每一个非叶子节点$[a,b]$，它的左儿子表示的区间为$[a,\frac{a+b}{2}]$，右儿子表示的区间为$[\frac{a+b}{2}+1,b]$。
+        \pause
+
+        \qquad \includegraphics[scale=0.4]{segment-tree.jpg}
+        \pause
+
+        \qquad 单次操作时间复杂度$O(\log n)$，空间复杂度$O(2*n)$。
+
+    \end{frame}\begin{frame}
+        \frametitle{Sakuya}
+        \qquad 题目大意是让你维护一个栈，里面每一个数都是$0$或者$1$。弹栈顶和入栈大概都是一些常见的设定。
+        \pause
+
+        \qquad 这题有趣之处在于多了一个栈翻转，你可以考虑就是将整个栈倒立过来。
+        \pause
+
+        \qquad 另外的维护的东西是从栈顶到栈底的数的与非的值，举个栗子：
+        \pause
+
+        \qquad 假设这个栈从栈顶到栈底是$a_1,a_2,a_3,a_4$，那么你要得到的就是$((a1 nand a2) nand a3) nand a4$.
+        \pause
+
+        \qquad 与非的设定大概是先与运算再取非运算，也即$x nand y = not (x and y)$。
+        \pause
+
+        \qquad $n,m\leq 2\times 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{Sakuya}
+        \qquad 翻转操作可以视为在栈的两端都可以加入删除节点，以及询问可以从两侧询问。
+        \pause
+
+        \qquad 由于两侧都可以加点，所以线段树的下标范围比较难以确定。
+        \pause
+
+        \qquad 因此我们可以先将所有操作读入，求出栈左侧最长时延伸的长度。
+        \pause
+
+        \qquad 之后对于线段树上的每个节点维护从左向右/从右向左，开始时是0/1通过这段区间后的答案，即可处理询问和修改。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj4373算术天才⑨与等差数列}
+        \qquad 算术天才⑨非常喜欢和等差数列玩耍。
+        \pause
+
+        \qquad 有一天，他给了你一个长度为$n$的序列，其中第$i$个数为$a_i$。
+        \pause
+
+        \qquad 他想考考你，每次他会给出询问$l,r,k$，问区间$[l,r]$内的数从小到大排序后能否形成公差为k的等差数列。
+        \pause
+
+        \qquad 当然，他还会不断修改其中的某一项。
+        \pause
+
+        \qquad 为了不被他鄙视，你必须要快速并正确地回答完所有问题。
+        \pause
+
+        \qquad 注意：只有一个数的数列也是等差数列。
+        \pause
+
+        \qquad $n,m\leq 3\times 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj4373算术天才⑨与等差数列}
+        \qquad 区间能组成等差数列的条件有两个。
+        \pause
+
+        \begin{itemize}
+          \item $max(l,r)-min(l,r)=(r-l)\times k$。
+          \pause
+          \item 区间$[l,r]$差分后的$gcd$为$k$。
+          \pause
+        \end{itemize}
+
+        \qquad 以上两项都可以用线段树轻松维护。
+        \pause
+
+        \qquad 时间复杂度$O(n\log^2n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj4399魔法少女LJJ}
+        \qquad 有一张动态图，支持一下7个操作：
+        \pause
+
+        \begin{itemize}
+          \item 新建一个节点，权值为x。
+          \pause
+          \item 连接两个节点。
+          \pause
+          \item 将一个节点a所属于的联通快内权值小于x的所有节点权值变成x。
+          \pause
+          \item 将一个节点a所属于的联通快内权值大于x的所有节点权值变成x。
+          \pause
+          \item 询问一个节点a所属于的联通块内的第k小的权值是多少。
+          \pause
+          \item 询问一个节点a所属联通快内所有节点权值之积与另一个节点b所属联通快内所有节点权值之积的大小。
+          \pause
+          \item 询问a所在联通快内节点的数量。
+        \end{itemize}
+
+        \qquad $n,m\leq 3\times 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj4399魔法少女LJJ}
+        \qquad 用动态开节点的权值线段树维护每个连通块。
+        \pause
+
+        \qquad 每个节点被新建时都为一个只包含初始权值的动态开点线段树。
+        \pause
+
+        \qquad 连接两个连通块相当于将两个连通块的线段树合并。
+        \pause
+
+        \qquad 3、4两个操作都相当于线段树上区间求和，区间赋值。
+        \pause
+
+        \qquad 第5个询问直接在权值线段树上跑即可。
+        \pause
+
+        \qquad 第6个询问可以通过取对数进行比较。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{codechef[MARCH14]The Street}
+        \qquad 给定两个长度为$n$的数列$A$和$B$，开始数组$A$中每一项值为$0$，数组$B$中每一项值为负无穷大。
+        \pause
+
+        \qquad 接下来有 m 次操作：
+        \pause
+
+        \begin{itemize}
+          \item 数组A区间加一个等差数列。
+          \pause
+          \item 数组B区间对一个等差数列取max。
+          \pause
+          \item 询问$A_i+B_i$的值。
+          \pause
+        \end{itemize}
+
+        \qquad $n\leq 10^9,m\leq 3\times 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{codechef[MARCH14]The Street}
+        \qquad 可以将两个问题分开考虑。
+        \pause
+
+        \qquad 第一个问题只要再线段树的每个节点上打标记，表示整段区间被加了以$A$为首项，$B$为公差的等差数列。
+        \pause
+
+        \qquad 第二个问题我们可以在线段树上的每个节点维护该节点和哪个等差数列取了$max$。
+        \pause
+
+        \qquad 假如现在新来一个等差数列，那么与原等差数列相比，一定有一个只能在左半个区间或者右半个区间产生效果，下传那个数列即可。
+        \pause
+
+        \qquad 时间复杂度$O(n\log^2n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3745[Coci2015]Norma}
+        \qquad 给定一个正整数序列$a_1,a_2,...,a_n$，求
+        \pause
+
+        \qquad $\sum_{i=1}^n\sum_{j=i}^n(j-i+1)min(a_i,a_{i+1},...,a_j)max(a_i,a_{i+1},...,a_j)$
+        \pause
+
+        \qquad $n\leq10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3745[Coci2015]Norma}
+        \qquad 给定一个正整数序列$a_1,a_2,...,a_n$，求
+        \pause
+
+        \qquad $\sum_{i=1}^n\sum_{j=i}^n(j-i+1)min(a_i,a_{i+1},...,a_j)max(a_i,a_{i+1},...,a_j)$
+        \pause
+
+        \qquad $n\leq10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3745[Coci2015]Norma}
+        \qquad 我们可以考虑所有以$l$为开头的区间和所有以$l-1$为开头的区间的区别。
+        \pause
+
+        \qquad 发现会对结尾连续的一些区间的最大/最小值产生影响。
+        \pause
+
+        \qquad 所以我们可以开两个线段树，分别以某个数为结尾的区间最大/最小值的和。
+        \pause
+
+        \qquad 这样我们只要再用两个单调队列即可维护。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{UOJ38清华集训2014奇数国}
+        \qquad 有一个长度为$n$的数列，开始时每一项值都为$3$。这个数列中每一项都只包含前60个质数的质因数。
+        \pause
+
+        \qquad 现在有两种操作
+        \pause
+
+        \begin{itemize}
+          \item 修改数列中一项的值，保证值小于$1000000$。
+          \pause
+          \item 询问与一段区间$[l,r]$的积$x$互质并且小于$x$的数的个数，答案对$1000000007$取模。
+          \pause
+        \end{itemize}
+
+        \qquad $n,m\leq 5\times 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{UOJ38清华集训2014奇数国}
+        \qquad 发现询问的数为$\phi(x)$。我们可以利用$\phi(x)=\sum p_i^(k_i-1)*(p_i-1)$公式。
+        \pause
+
+        \qquad 用一棵线段树维护每段区间的积，再用一棵二进制线段树维护每个区间每个数是否出现过。
+        \pause
+
+        \qquad 这样我们只要求出区间的积，再将这段区间中出现过的每个数利用逆元修改答案即可。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n+q*60)$
+    \end{frame}
+    \begin{frame}
+        \frametitle{UOJ164清华集训2015V}
+        \qquad Picks博士要一个长度为$n$的数列进行操作。他会进行以下五种操作。
+        \pause
+
+        \begin{itemize}
+          \item 给区间$[l,r]$增加$x$的权值。
+          \pause
+          \item 给区间$[l,r]$减少$x$的权值，再对$0$取max。
+          \pause
+          \item 将区间$[l,r]$中所有数都设为$x$。
+          \pause
+          \item 求第$y$个数的值。
+          \pause
+          \item 求第$y$个数的历史最大值。
+        \end{itemize}
+        \pause
+
+        $n,m\leq 5\times 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{UOJ164清华集训2015V}
+        \qquad 首先我们考虑前4问。第3问可以转化为第2问+第1问。
+        \pause
+
+        \qquad 区间加权值很好处理，难处理的是区间减少权值在取$max$。
+        \pause
+
+        \qquad 通过思考，我们发现经过一系列操作后，数$x$的值一定会变成$max(x+A,B)$。
+        \pause
+
+        \qquad 假如我们在经过$max(x+a,b)$的操作后又进行了$max(x+A,B)$的操作，那么答案会变成$max(max(x+a,b)+A,B)$。
+        \pause
+
+        \qquad 经过转化，答案变为$max(x+a+A,max(b+A,B))$，依旧是之前的形式。
+    \end{frame}
+    \begin{frame}
+        \frametitle{UOJ164清华集训2015V}
+        \qquad 现在来考虑第$5$问如何解决。
+        \pause
+
+        \qquad 对于每个节点，我们额外维护在这个节点积存的所有操作中最大的$max(x+AA,BB)$。
+        \pause
+
+        \qquad 假如一个新的操作使得这个节点的当前标记变成$max(x+A,B)$，那么最大标记要更新为$max(x+max(A,AA),max(B,BB))$。
+        \pause
+
+        \qquad 在下传标记时，我们要先把子节点的当前标记$max(x+A,B)$接在父节点的最大标记$max(x+AA,BB)$之前。
+        \pause
+
+        \qquad 所以标记会变成$max(x+A+AA,max(B+AA,BB))$，之后再和子节点的最大标记进行比较。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+
+
+    \begin{frame}
+        \frametitle{trie树}
+        \qquad trie树又称单词查找树，Trie树，是一种树形结构。
+        \pause
+
+        \qquad \includegraphics[scale=0.35]{trie.png}
+        \pause
+
+        \qquad trie树有三个基本性质。
+        \pause
+
+        \begin{itemize}
+          \item 根节点不包含字符，除根节点外每一个节点都只包含一个字符。
+          \pause
+          \item 从根节点到某一节点，路径上经过的字符连接起来，为该节点对应的字符串。
+          \pause
+          \item 每个节点的所有子节点包含的字符都不相同。
+        \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{P2580 于是他错误的点名开始了}
+        \qquad 在一个班上有$n$个人，每个人名字互不相同。
+        \pause
+
+        \qquad 现在校长来点名了，他一共点了$m$个人，如果他点的名字对应班里一个人，输出OK，如果不在班里，输出WRONG，如果在班里但是已经点过了，输出REPEAT。
+        \pause
+
+        \qquad 数据范围$n\leq 10000,m\leq 100000$名字长度不超过20。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{P2580 于是他错误的点名开始了}
+        \qquad 直接对班上所有人建一棵trie树，之后枚举每个人，在trie树上找到对应的位置，如果是第一次出现则在对应点上打标记即可。
+        \pause
+
+        \qquad 时间复杂度$O(m)$。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{P2292 [HNOI2004]L语言}
+        \qquad 一段文章T是由若干小写字母构成。一个单词W也是由若干小写字母构成。一个字典D是若干个单词的集合。我们称一段文章T在某个字典D下是可以被理解的，是指如果文章T可以被分成若干部分，且每一个部分都是字典D中的单词。
+        \pause
+
+        \qquad 给定一个字典D，你的程序需要判断若干段文章在字典D下是否能够被理解。并给出其在字典D下能够被理解的最长前缀的位置。
+        \pause
+
+        \qquad 数据范围$n,m\leq 20$，每个单词长度不超过10，每段文章长度不超过1M。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{P2292 [HNOI2004]L语言}
+        \qquad 首先可以把所有单词建成一棵trie树。
+        \pause
+
+        \qquad 之后从前向后枚举文章中的每一个字母，再枚举trie树上的每一个节点，用$f_{i,j}$表示trie树上编号为i的节点是否能匹配文章中第$j$个字母。
+        \pause
+
+        \qquad 转移为$f_{i,j}=f_{dad_i,j-1}(s_j=dad_i\Rightarrow i)$
+        \pause
+
+        \qquad 时间复杂度$O(n*M)$。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{P2922 [USACO08DEC]秘密消息Secret Message}
+        \qquad 贝茜正在领导奶牛们逃跑．为了联络，奶牛们互相发送秘密信息。
+        \pause
+
+        \qquad 信息是二进制的，共有M条．反间谍能力很强的约翰已经部分拦截了这些信息，知道了第i条二进制信息的前$b_i$位．他同时知道，奶牛使用N条密码．但是，他仅仅了解第J条密码的前$c_j$位。
+        \pause
+
+        \qquad 对于每条密码J，他想知道有多少截得的信息能够和它匹配．也就是说，有多少信息和这条密码有着相同的前缀．当然，这个前缀长度必须等于密码和那条信息长度的较小者。
+        \pause
+
+        \qquad 数据范围$m,n\leq 50000,c_j,b_i\leq 10000,\sum c_j+\sum b_i\leq 500000$
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{P2922 [USACO08DEC]秘密消息Secret Message}
+        \qquad 题意为对于每条密码求出有多少条信息是他的前缀以及该密码是多少条信息的前缀。
+        \pause
+
+        \qquad 所以我们可以对于信息建立一棵trie树，在树上的每个节点维护子树大小的信息，这样我们只要枚举每条密码，在trie树上找到对应位置，把访问过的信息数加上子树大小即为答案。
+        \pause
+
+        \qquad 时间复杂度$O(\sum c_j+\sum b_i)$。
+
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3261最大异或和}
+        \qquad 给定一个非负整数序列${a}$，初始长度为$n$。
+        \pause
+
+        \qquad 有$n$个操作，有以下两种操作类型：
+        \pause
+        \begin{itemize}
+          \item A x：添加操作，表示在序列末尾添加一个数$x$，序列的长度$n+1$。
+          \pause
+          \item Q l r x：询问操作，你需要找到一个位置$p$，满足$l\leq p\leq r$，使得。
+          \pause
+        \end{itemize}
+        \qquad $a_p\ xor\ a_{p+1}\ xor\ ...\ xor\ a_n\ xor\ x$最大，输出最大是多少。
+        \pause
+
+        \qquad 数据范围$n,m\leq 300000$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{bzoj3261最大异或和}
+        \qquad 用$b_i$表示$a$数组的前缀异或和。
+        \pause
+
+        \qquad 那么就是求$\max(b_n\ xor\ b_{p-1}\ x)$。由于$b_n$和$x$都是固定的，所以我们只要找出满足条件的$b_{p-1}$即可。
+        \pause
+
+        \qquad 对于$b_i$的值建立可持久化trie树即可。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{hash}
+        \qquad 一般而言，hash是将大规模的数据，通过一定算法变换成一个规模确定的，较小的数据。
+        \pause
+
+        \qquad 在算法竞赛领域，hash算法主要用来对大规模数据进行比较，应用的hash有
+        \pause
+        \begin{itemize}
+          \item 字符串hash
+          \pause
+          \item 超大数hash
+          \pause
+          \item 树hash
+        \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{字符串hash}
+        \qquad 在算法竞赛中最常见的字符串hash方法就是把字符串转化成一个高进制的大整数，求出这个大整数对一个模数取模后的结果。
+        \pause
+
+        \qquad 由于hash在模数为数量平方的情况下几乎不可能出现冲突的情况，所以一般我们需要用两个模数。
+        \pause
+
+        \qquad 当然如果你不怕被恶意的出题人卡的话可以用unsigned long long自然溢出，只要选一个好一点的进制基本不可能被卡（反正我都是这么干的）
+        \pause
+
+        \qquad 这个hash算法的高明之处在于还能在修改字符串的同时修改hash值，使得一些带修问题也支持了。
+    \end{frame}
+    \begin{frame}
+        \frametitle{循环串问题}
+        \qquad 给定一个长度为$n$的字符串，有q组操作，每次可以修改其中一个字符或者添加一个新的字符，之后询问该字符串的最短循环串长度。必须满足字符串长度是循环串长度的倍数。
+        \pause
+
+        \qquad 数据范围$n,q\leq 10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{循环串问题}
+        \qquad 由于只有单点修改，所以我们可以用一个树状数组来维护字符串的hash值。
+        \pause
+
+        \qquad 对于每组询问可以枚举字符串长度的所有因数，判断该循环节长度是否合法。
+        \pause
+
+        \qquad 时间复杂度$O(n\sqrt(n))$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{01串翻转问题}
+        \qquad 给定一个01串a和一系列长度不定的模式01串$b_i$，之后有一系列操作和询问。
+        \pause
+
+        \begin{itemize}
+          \item 一个操作会给出$l,r$两个参数表示翻转01串a区间$[l,r]$中所有元素。
+          \pause
+          \item 一个询问会给出$l,r,t$表示询问串a的区间$[l,r]$是否和$b_t$相等。
+          \pause
+        \end{itemize}
+        \qquad 数据范围$n\leq 10^5,\sum |b_i|\leq 2*10^5$
+    \end{frame}
+    \begin{frame}
+        \frametitle{01串翻转问题}
+        \qquad 使用一个线段树维护01串。
+        \pause
+
+        \qquad 在线段树的每个节点上维护该区间中元素的hash值。
+        \pause
+
+        \qquad 修改时打标记下传即可，询问时求出区间hash值与预处理的模式串hash值进行比较。
+        \pause
+
+        \qquad 时间复杂度$O(n\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{超大数hash}
+        \qquad 和字符串hash类似的，还有对超大数的hash。
+        \pause
+
+        \qquad 一般而言也是对一个大质数取模后进行比较。
+    \end{frame}
+    \begin{frame}
+        \frametitle{NOIP2014解方程}
+        \qquad 已知多项式方程：
+        \pause
+
+        \qquad $a_0+a_1*x+a_2*x^2+..+a_n*x^n=0$
+        \pause
+
+        \qquad 求这个方程在[1,m]内的整数解（n和m均为正整数）
+        \pause
+
+        \qquad 数据范围$n\leq 100,m\leq 10^6,a_i\leq 10^100$
+    \end{frame}
+    \begin{frame}
+        \frametitle{NOIP2014解方程}
+        \qquad 由于最终解只有100个，所以我们可以先枚举$0\sim 10006$的所有数，判断在模10007的情况下是否是合法解。
+        \pause
+
+        \qquad 之后枚举$1\sim m$中所有模10007情况下合法的数，大约有10000个，再用一个或两个大质数作为模数判断是否合法即可。
+        \pause
+
+        \qquad 时间复杂度$O(\sqrt{m*n}*\log(a_i))$
+    \end{frame}
+    \begin{frame}
+        \frametitle{树hash}
+        \qquad 有的时候我们要判断两棵树是否同构，这个时候我们可以考虑使用树hash算法。
+        \pause
+        
+        \qquad 我们可以选择根据树的括号序列二进制表示来进行hash。为了保证子树顺序一致，我们可以将子树hash值从小到大排序后再求hash值。
+    \end{frame}
+    \begin{frame}
+        \frametitle{BZOJ 4337: BJOI2015 树的同构}
+        \qquad 树是一种很常见的数据结构。
+        \pause
+        
+        \qquad 我们把N个点，N-1条边的连通无向图称为树。
+        \pause
+        
+        \qquad 若将某个点作为根，从根开始遍历，则其它的点都有一个前驱，这个树就成为有根树。
+        \pause
+        
+        \qquad 对于两个树T1和T2，如果能够把树T1的所有点重新标号，使得树T1和树T2完全相同，那么这两个树是同构的。也就是说，它们具有相同的形态。
+        \pause
+        
+        \qquad 现在，给你M个有根树，请你把它们按同构关系分成若干个等价类。
+        \pause
+        
+        \qquad $m,n\leq 1000$
+    \end{frame}
+        \begin{frame}
+        \frametitle{BZOJ 4337: BJOI2015 树的同构 树hash}
+        \qquad 由于一棵树最多只有两个重心，所以只要求出以重心为根的树的hash值即可判断是否同构。
+        \pause
+        
+        \qquad 时间复杂度$O(nm\log n)$。
+    \end{frame}
+    \begin{frame}
+        \frametitle{st表}
+        \qquad ST表是用来求解给定区间RMQ的最值，思想类似倍增算法。
+        \pause
+        
+        \qquad 对于数列a，我们可以预处理$f_{i,j}$表示第$i$项到第$i+2^j-1$项的最值。
+        \pause
+        
+        \qquad 之后在查询区间$[l,r]$时，只要求$max(f
+    \end{frame}
+    \begin{frame}
+        \frametitle{STL}
+        \qquad
+    \end{frame}
+\end{CJK*}
+
+\end{document}
