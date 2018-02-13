@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem type="TRA_0_4" maker="pcdialog">
+    <source dir="coin" file="coin" code="100">
+        <language cmd="fpc coin.pas" file="coin.pas"/>
+        <language cmd="g++ -o coin coin.cpp -lm" file="coin.cpp"/>
+        <language cmd="gcc -o coin coin.c -lm" file="coin.c"/>
+    </source>
+    <task output="coin.out" input="coin.in" io="0" checker="全文比较">
+        <subtask score="10">
+            <point in="coin1.in" out="coin1.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin2.in" out="coin2.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin3.in" out="coin3.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin4.in" out="coin4.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin5.in" out="coin5.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin6.in" out="coin6.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin7.in" out="coin7.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin8.in" out="coin8.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin9.in" out="coin9.out" time="1" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="coin10.in" out="coin10.out" time="1" mem="256"/>
+        </subtask>
+    </task>
+</problem>

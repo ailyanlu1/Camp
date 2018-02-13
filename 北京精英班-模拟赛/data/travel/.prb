@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<problem type="TRA_0_4" maker="pcdialog">
+    <source dir="travel" file="travel" code="100">
+        <language cmd="fpc travel.pas" file="travel.pas"/>
+        <language cmd="g++ -o travel travel.cpp -lm" file="travel.cpp"/>
+        <language cmd="gcc -o travel travel.c -lm" file="travel.c"/>
+    </source>
+    <task output="travel.out" input="travel.in" io="0" checker="全文比较">
+        <subtask score="10">
+            <point in="travel1.in" out="travel1.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel2.in" out="travel2.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel3.in" out="travel3.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel4.in" out="travel4.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel5.in" out="travel5.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel6.in" out="travel6.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel7.in" out="travel7.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel8.in" out="travel8.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel9.in" out="travel9.out" time="2" mem="256"/>
+        </subtask>
+        <subtask score="10">
+            <point in="travel10.in" out="travel10.out" time="2" mem="256"/>
+        </subtask>
+    </task>
+</problem>
